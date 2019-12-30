@@ -78,7 +78,6 @@ export default function Home() {
                 style={{ width: "70%" }}
               />
               <Typography
-                component="h1"
                 variant="h5"
                 style={{ fontWeight: "600", paddingBottom: "5%" }}
               >
@@ -91,14 +90,17 @@ export default function Home() {
                   margin="normal"
                   required
                   fullWidth
-                  placeholder="Add URL"
+                  placeholder="Adauga URL"
                   autoFocus
                   onChange={addUrl}
                   value={url}
                 />
                 {showLUrl && (
                   <span>
-                    <Typography component="h4" style={{ paddingTop: "10%" }}>
+                    <Typography
+                      component="h4"
+                      style={{ paddingTop: "10%", paddingBottom: "5%" }}
+                    >
                       Link-ul de ProfitShare este:
                     </Typography>
 
@@ -111,7 +113,7 @@ export default function Home() {
                     className={classes.submit}
                     onClick={changeUrl}
                     style={{
-                      marginTop: "40%",
+                      marginTop: "30%",
                       padding: "3% 15% 3% 15%",
                       backgroundColor: "#00A79D",
                       color: "#fff"
