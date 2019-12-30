@@ -44,10 +44,12 @@ export default function Home() {
 
   function changeUrl() {
     console.log("start fetch");
+
     fetch(
-      `http://kdgprofitshare.azurewebsites.net/api/GetProfitshareUrl?code=185YA80CxDyw1A5CMC2A533wygfXTQvej9VsCStzz2yf5AnYyuLODw==&url=${url}`,
+      `https://kdgprofitshare.azurewebsites.net/api/GetProfitshareUrl?code=185YA80CxDyw1A5CMC2A533wygfXTQvej9VsCStzz2yf5AnYyuLODw==&url=${url}`,
       {
         method: "GET"
+        // mode: "no-cors"
       }
     )
       // .then(handleResponse)
