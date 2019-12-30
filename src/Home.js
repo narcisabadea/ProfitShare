@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import { handleResponse } from "./handleResponse";
 
 const useStyles = makeStyles(theme => ({
@@ -40,23 +39,21 @@ export default function Home() {
   });
 
   const [url, setUrl] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [showLUrl, setShowUrl] = useState(false);
+  const [urlProfitShare, setUrlProfitShare] = useState("");
 
   function changeUrl() {
-    console.log("start fetch");
-
     fetch(
       `https://kdgprofitshare.azurewebsites.net/api/GetProfitshareUrl?code=185YA80CxDyw1A5CMC2A533wygfXTQvej9VsCStzz2yf5AnYyuLODw==&url=${url}`,
       {
         method: "GET"
-        // mode: "no-cors"
       }
     )
-      // .then(handleResponse)
+      .then(handleResponse)
       .then(response => {
-        console.log(response);
+        setUrlProfitShare(response.url);
       });
-    console.log("end fetch");
+    setShowUrl(true);
   }
 
   function addUrl(event) {
@@ -95,20 +92,19 @@ export default function Home() {
                   onChange={addUrl}
                   value={url}
                 />
+                {showLUrl && (
+                  <span>
+                    <Typography component="h4" style={{ paddingTop: "10%" }}>
+                      Link-ul de ProfitShare este:
+                    </Typography>
 
-                <Grid container justify="center" alignItems="center">
-                  {loading && <CircularProgress disableShrink />}
-                </Grid>
-
-                <Grid container justify="center" alignItems="center">
-                  {loading && <CircularProgress disableShrink />}
-                </Grid>
-
+                    <a href={urlProfitShare}> {urlProfitShare} </a>
+                  </span>
+                )}
                 <Grid container justify="center" alignItems="center">
                   <Button
                     variant="contained"
                     className={classes.submit}
-                    // // disabled={loading ? true : false}
                     onClick={changeUrl}
                     style={{
                       marginTop: "40%",
