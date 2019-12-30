@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Button, TextField } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
@@ -72,7 +72,11 @@ export default function Home() {
           >
             <CssBaseline />
             <div className={classes.paper}>
-              <img src={"/images/kdg.PNG"} style={{ width: "70%" }} />
+              <img
+                src={"/images/kdg.PNG"}
+                alt="KodingTech"
+                style={{ width: "70%" }}
+              />
               <Typography
                 component="h1"
                 variant="h5"
