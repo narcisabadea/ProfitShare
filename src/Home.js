@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { handleResponse } from "./handleResponse";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -95,6 +96,7 @@ export default function Home() {
                   onChange={addUrl}
                   value={url}
                 />
+
                 {showLUrl && (
                   <span>
                     <Typography
@@ -105,6 +107,20 @@ export default function Home() {
                     </Typography>
 
                     <a href={urlProfitShare}> {urlProfitShare} </a>
+
+                    <Grid container justify="center" alignItems="center">
+                      <CopyToClipboard text={urlProfitShare}>
+                        <Button
+                          style={{
+                            backgroundColor: "#00A79D",
+                            color: "#fff",
+                            marginTop: "5%"
+                          }}
+                        >
+                          Copy link
+                        </Button>
+                      </CopyToClipboard>
+                    </Grid>
                   </span>
                 )}
                 <Grid container justify="center" alignItems="center">
@@ -113,7 +129,7 @@ export default function Home() {
                     className={classes.submit}
                     onClick={changeUrl}
                     style={{
-                      marginTop: "30%",
+                      marginTop: "20%",
                       padding: "3% 15% 3% 15%",
                       backgroundColor: "#00A79D",
                       color: "#fff"
