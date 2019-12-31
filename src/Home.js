@@ -42,6 +42,7 @@ export default function Home() {
   const [url, setUrl] = useState("");
   const [showLUrl, setShowUrl] = useState(false);
   const [urlProfitShare, setUrlProfitShare] = useState("");
+  const [disabled, setDisable] = useState(false);
 
   function changeUrl() {
     fetch(
@@ -55,6 +56,7 @@ export default function Home() {
         setUrlProfitShare(response.url);
       });
     setShowUrl(true);
+    setDisable(true);
   }
 
   function addUrl(event) {
@@ -117,27 +119,37 @@ export default function Home() {
                             marginTop: "5%"
                           }}
                         >
-                          Copy link
+                          Copiaza
                         </Button>
                       </CopyToClipboard>
                     </Grid>
                   </span>
                 )}
-                <Grid container justify="center" alignItems="center">
-                  <Button
-                    variant="contained"
-                    className={classes.submit}
-                    onClick={changeUrl}
-                    style={{
-                      marginTop: "20%",
-                      padding: "3% 15% 3% 15%",
-                      backgroundColor: "#00A79D",
-                      color: "#fff"
-                    }}
-                  >
-                    Submit
-                  </Button>
-                </Grid>
+                {!disabled && (
+                  <Grid container justify="center" alignItems="center">
+                    <Button
+                      variant="contained"
+                      className={classes.submit}
+                      onClick={changeUrl}
+                      style={{
+                        marginTop: "20%",
+                        padding: "3% 15% 3% 15%",
+                        backgroundColor: "#00A79D",
+                        color: "#fff"
+                      }}
+                    >
+                      Submit
+                    </Button>
+                  </Grid>
+                )}
+
+                {disabled && (
+                  <Grid container justify="center" alignItems="center">
+                    <Button type="submit" className={classes.submit}>
+                      Adauga alt link
+                    </Button>
+                  </Grid>
+                )}
               </form>
             </div>
           </Card>
