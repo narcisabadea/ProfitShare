@@ -90,7 +90,7 @@ export default function Home() {
                   margin="normal"
                   required
                   fullWidth
-                  placeholder="Adauga URL"
+                  placeholder="Adauga link Emag"
                   autoFocus
                   onChange={addUrl}
                   value={url}
