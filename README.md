@@ -4,7 +4,7 @@ App used for converting Emag purchase links in Profit Share links.
 
 ## Development
 
-The application is also live [HERE](profitshare.netlify.app/).
+The application is also live [HERE](https://profitshare.netlify.app/).
 
 This project was created using [Create React App](https://github.com/facebook/create-react-app).
 
